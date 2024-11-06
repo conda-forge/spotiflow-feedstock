@@ -1,5 +1,5 @@
 {% set name = "spotiflow" %}
-{% set version = "0.3.3" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spotiflow-{{ version }}.tar.gz
-  sha256: d3faf71ab15f3eef65404489983ce48a4bc094212896ea97274bf970dafc2eb8
+  sha256: 4f8296094a18902eff6c6423a0c9bef7eb7ff194b5d5add014a18e3ca11e906c
 
 build:
-  skip: True  # [win or py<39 or py>=312]
+  skip: true  # [win or py<39 or py>=312]
   entry_points:
     - spotiflow-predict = spotiflow.cli.predict:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
