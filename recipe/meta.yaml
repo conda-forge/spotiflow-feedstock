@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spotiflow-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spotiflow-{{ version }}.tar.gz
   sha256: d3faf71ab15f3eef65404489983ce48a4bc094212896ea97274bf970dafc2eb8
 
 build:
@@ -14,7 +14,7 @@ build:
   entry_points:
     - spotiflow-predict = spotiflow.cli.predict:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   build:
