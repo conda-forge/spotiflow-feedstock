@@ -44,7 +44,7 @@ requirements:
     - csbdeep
     - dask
     - lightning
-    - importlib_metadata >=4.4  # [py<312]
+    - importlib-metadata >=4.4  # [py<312]
     - networkx
     - pandas
     - pillow
