@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spotiflow-{{ version }}.tar.gz
-  sha256: d3faf71ab15f3eef65404489983ce48a4bc094212896ea97274bf970dafc2eb8
+  sha256: cc884dfeb617eaf8a501ce82cb36be54e6ef1b4c06771993ffa9f431f0cb2e8d
 
 build:
   skip: True  # [win or py<39 or py>=312]
