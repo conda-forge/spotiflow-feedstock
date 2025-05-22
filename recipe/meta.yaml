@@ -1,5 +1,5 @@
 {% set name = "spotiflow" %}
-{% set version = "0.3.3" %}
+{% set version = "0.5.5" %}
 
 package:
   name: {{ name|lower }}
@@ -13,6 +13,7 @@ build:
   skip: True  # [win or py<39 or py>=312]
   entry_points:
     - spotiflow-predict = spotiflow.cli.predict:main
+    - spotiflow-train = spotiflow.cli.train:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
