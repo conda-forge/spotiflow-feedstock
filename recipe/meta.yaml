@@ -1,5 +1,5 @@
 {% set name = "spotiflow" %}
-{% set version = "0.5.8" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spotiflow-{{ version }}.tar.gz
-  sha256: 2d58040491e53f8778c47c18172265d4a7aae96ae762a9d30b5bfafe49354472
+  sha256: 6f9c9dc57b60cdcd6b91ad18deed1e59477e36cefed03d2e09739f948e66b0d4
 
 build:
   skip: true  # [win or py<310 or py>=313]
