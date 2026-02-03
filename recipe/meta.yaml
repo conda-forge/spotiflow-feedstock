@@ -10,7 +10,7 @@ source:
   sha256: 801738431a7b7379faa93390aa630b8f5d3401529e59505f40d9015e1827a128
 
 build:
-  skip: true  # [win or py<310 or py>=313]
+  skip: true  # [win or py<310 or py>314]
   entry_points:
     - spotiflow-predict = spotiflow.cli.predict:main
     - spotiflow-train = spotiflow.cli.train:main
@@ -57,7 +57,7 @@ requirements:
     - torchvision
     - tqdm
     - typing-extensions
-    - wandb
+    - wandb !=0.23.1
     - zarr
 
 test:
