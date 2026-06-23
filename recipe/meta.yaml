@@ -10,7 +10,7 @@ source:
   sha256: 0e4a3a07c6fda64929824b53858ddc81dbd80f0f313844191515b7b3cdf621b2
 
 build:
-  skip: true  # [win or py<310 or py>312]
+  skip: true  # [win or py<310 or py>314]
   entry_points:
     - spotiflow-predict = spotiflow.cli.predict:main
     - spotiflow-train = spotiflow.cli.train:main
@@ -39,15 +39,19 @@ requirements:
     - libgomp      # [linux]
   run:
     - python
+    - aiohttp
     - configargparse
     - crick
     - csbdeep
     - dask
+    - fsspec
+    - h5py
     - lightning
     - importlib-metadata >=4.4  # [py<312]
     - networkx
     - pandas
     - pillow
+    - psutil
     - pydash
     - scikit-image
     - scipy
