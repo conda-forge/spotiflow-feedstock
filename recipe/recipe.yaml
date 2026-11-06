@@ -13,7 +13,6 @@ source:
 
 build:
   number: 0
-  noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
@@ -27,14 +26,14 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
   host:
-    - python ${{ python_min }}.*
+    - python
     - setuptools <=71.0
     - setuptools-scm >=6.2
     - wheel
     - numpy
     - pip
   run:
-    - python >=${{ python_min }}
+    - python
     - aiohttp
     - configargparse
     - crick
@@ -65,13 +64,10 @@ tests:
       imports:
         - spotiflow
       pip_check: true
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
   - requirements:
       run:
         - pip
-        - python ${{ python_min }}.*
+        - python
     script:
       - spotiflow-predict --help
       - spotiflow-train --help
