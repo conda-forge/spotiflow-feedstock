@@ -1,0 +1,87 @@
+schema_version: 1
+
+context:
+  version: "0.6.5"
+
+package:
+  name: spotiflow
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/s/spotiflow/spotiflow-${{ version }}.tar.gz
+  sha256: 0e4a3a07c6fda64929824b53858ddc81dbd80f0f313844191515b7b3cdf621b2
+
+build:
+  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - spotiflow-predict = spotiflow.cli.predict:main
+      - spotiflow-train = spotiflow.cli.train:main
+      - spotiflow-check = spotiflow.cli.check:main
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+  host:
+    - python
+    - setuptools <=71.0
+    - setuptools-scm >=6.2
+    - wheel
+    - numpy
+    - pip
+  run:
+    - python
+    - aiohttp
+    - configargparse
+    - crick
+    - csbdeep
+    - dask-core
+    - fsspec
+    - h5py
+    - lightning
+    - networkx
+    - pandas
+    - pillow
+    - pydash
+    - scikit-image
+    - scipy
+    - setuptools
+    - psutil
+    - tensorboard
+    - tifffile
+    - torchvision
+    - tqdm
+    - typing_extensions
+    - wandb !=0.23.1
+    - zarr
+    - ${{ pin_compatible('numpy') }}
+
+tests:
+  - python:
+      imports:
+        - spotiflow
+      pip_check: true
+  - requirements:
+      run:
+        - pip
+        - python
+    script:
+      - spotiflow-predict --help
+      - spotiflow-train --help
+      - spotiflow-check --help
+
+about:
+  summary: Spotiflow - accurate and efficient spot detection for microscopy data
+  license: BSD-3-Clause
+  license_file:
+    - LICENSE
+    - spotiflow/lib/external/nanoflann/LICENSE.txt
+  homepage: https://github.com/weigertlab/spotiflow
+
+extra:
+  recipe-maintainers:
+    - AlbertDominguez
+    - imagejan
