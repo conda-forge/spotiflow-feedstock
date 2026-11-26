@@ -39,6 +39,9 @@ requirements:
     - wheel
     - numpy
     - pip
+    - if: osx
+      then:
+        - llvm-openmp
   run:
     - python
     - aiohttp
